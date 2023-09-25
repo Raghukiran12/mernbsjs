@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js Task 4</title>
+</head>
+<body>
+  <button onclick="showDate()">Show Date</button>
+  <p id="dateDisplay"></p>
+  <button onclick="showTime()">Show Time</button>
+  <p id="timeDisplay"></p>
+  <script>
+    function showDate() {
+      const currentDate = new Date();
+      const dateDisplay = document.getElementById('dateDisplay');
+      dateDisplay.textContent = `${currentDate.toLocaleDateString()}`;
+    }
+
+    function showTime() {
+      const currentDate = new Date();
+      
+      // Get day, month, day of the week, year, and time in IST (GMT+0530)
+      const options = {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZoneName: 'short',
+        timeZone: 'Asia/Kolkata' // (Indian Standard Time (IST)
+      };
+      const formattedDate = currentDate.toLocaleDateString('en-US', options);
+      
+      const timeDisplay = document.getElementById('timeDisplay'); // Corrected the variable name
+      timeDisplay.textContent = ` ${formattedDate}`; // Corrected the element ID
+    }
+  </script>
+</body>
+</html>

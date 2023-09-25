@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js Task 3</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>1st Number:</td>
+      <td><input type="number" class="num1"></td>
+    </tr>
+    <tr>
+      <td>2nd Number:</td>
+      <td><input type="number" class="num2"></td>
+    </tr>
+  </table>
+  <button class="button1">Multiply</button>
+  <button class="button2">Divide</button> <br>
+  The Result is: <br>
+  <input type="number" class="display">
+
+  <script>
+    const num1Input = document.querySelector('.num1');
+    const num2Input = document.querySelector('.num2');
+    const displayResult = document.querySelector('.display');
+    const multiplyButton = document.querySelector('.button1');
+    const divideButton = document.querySelector('.button2');
+
+    multiplyButton.addEventListener('click', function() {
+      const num1 = parseFloat(num1Input.value);
+      const num2 = parseFloat(num2Input.value);
+      
+      if (!isNaN(num1) && !isNaN(num2)) {
+        const result = num1 * num2;
+        displayResult.value = result;
+      } else {
+        displayResult.value = 'Invalid input';
+      }
+    });
+    
+    divideButton.addEventListener('click', function() {
+      const num1 = parseFloat(num1Input.value);
+      const num2 = parseFloat(num2Input.value);
+      
+      if (!isNaN(num1) && !isNaN(num2) && num2 !== 0) {
+        const result = num1 / num2;
+        displayResult.value = result;
+      } else {
+        displayResult.value = 'Invalid input';
+      }
+    });
+  </script>
+</body>
+</html>
